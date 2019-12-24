@@ -5,6 +5,32 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 const TODOS_LS = "toDos";
 
 let toDos = [];
+function saveToDos() {
+  localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
+  //JSON.stringify 는 object를 string으로 바꿔줌
+}
+
+function paintToDo(text) {
+  const li = document.createElement("li");
+  const delBtn = document.createElement("button");
+  delBtn.innerText = "❌";
+  delBtn.addEventListener("click", deleteToDo);
+  const span = document.createElement("span");
+  const newId = toDos.length + 1;
+  li.id = newId;
+  //list id 지정 (강의에 있었는데 못봄)
+  span.innerText = text;
+  li.appendChild(delBtn);
+  li.appendChild(span);
+  toDoList.appendChild(li);
+  const toDoObj = {
+    text: text,
+    id: newId
+  };
+  toDos.push(toDoObj);
+  saveToDos();
+}
+//자바 스크립트 내에서 html의 리스트, span, button 생성
 
 function deleteToDo(event) {
   // console.log(event.target.parentNode);
@@ -18,33 +44,6 @@ function deleteToDo(event) {
   toDos = cleanToDos;
   saveToDos();
 }
-
-function saveToDos() {
-  localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
-  //JSON.stringify 는 object를 string으로 바꿔줌
-}
-
-function paintToDo(text) {
-  const li = document.createElement("li");
-  const delBtn = document.createElement("button");
-  delBtn.innerText = "❌";
-  delBtn.addEventListener("click", deleteToDo);
-  const span = document.createElement("span");
-  const newId = toDos.length + 1;
-  li.id = toDos.length + 1;
-  //list id를 따로 지정해주어야하나?강의에는 없음 따로 지정안해주면 list id가 비어있음..
-  span.innerText = text;
-  li.appendChild(delBtn);
-  li.appendChild(span);
-  toDoList.appendChild(li);
-  const toDoObj = {
-    text: text,
-    id: newId
-  };
-  toDos.push(toDoObj);
-  saveToDos();
-}
-//자바 스크립트 내에서 html의 리스트, span, button 생성
 
 function handleSubmit(event) {
   event.preventDefault();
