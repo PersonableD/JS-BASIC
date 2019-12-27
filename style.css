@@ -11,9 +11,10 @@ body {
   font-weight: 100;
   text-align: center;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 .box {
-  padding: 0 20px;
+  padding: 30px 20px;
   border-radius: 30px;
   background-color: rgba(0, 0, 0, 0.2);
 }
@@ -21,36 +22,64 @@ body {
 .bottom-box {
   margin-top: 10px;
   border-top: 2px solid #fcfcfc;
-  padding-top: 10px;
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
 }
 
 .js-clock {
+  margin-top: -40px;
   height: 100%;
   font-size: 100px;
 }
 
 .js-toDoList {
-  list-style: none;
+  text-align: start;
+  /* list-style: none; */
+  /* 리스트 점 없애줌 */
+  list-style: decimal;
+  /* 리스트 숫자 붙여줌 */
 }
-/* 리스트 점 없애줌 */
 
 .toDolist {
+  width: fit-content;
+  /* 글자 길이에 맞춰 배경박스 조절됨 */
+  background: linear-gradient(to right, #8e9eab, #eef2f3);
+  border-radius: 15px;
   margin-bottom: 10px;
+  padding-left: 10px;
 }
 
+.scroll-bar {
+  width: 100%;
+  height: 200px;
+  /* 스크롤 안의 높이 한계치 */
+  overflow-y: auto;
+  /* 리스트 스크롤 만들어줌 */
+}
+.scroll-bar::-webkit-scrollbar {
+  background-color: transparent;
+}
+/* 스크롤 바 전체 스타일 변경 */
+
+.scroll-bar::-webkit-scrollbar-thumb {
+  background: linear-gradient(#70e1f5, #ffd194);
+  border-radius: 30px;
+}
+/* 잡고 스크롤 하는 부분 스타일 변경 */
+
 .btn {
-  border: 1px solid #c5bebe;
+  border: 0.5px solid #c5bebe;
   background-color: #fcfcfc;
-  padding: 5px 8px;
-  border-radius: 10px;
+  padding: 5px 10px;
+  border-radius: 20px;
   margin-left: 5px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
 }
 
 .btn:hover {
-  border: 1px solid red;
-  background-color: red;
+  border: none;
+  background: linear-gradient(to bottom right, #70e1f5, #ffd194);
 }
 
 /* .clicked {
@@ -88,6 +117,8 @@ input {
   top: 0;
   left: 0;
   width: 100%;
+  min-width: 1500px;
+  /* 최소 넓이를 설정함으로써 웹페이지를 축소 했을 때 배경이미지가 찌그러드는걸 막음 */
   height: 977px;
   z-index: -1;
   animation: fadeIn 0.5s linear;
