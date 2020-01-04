@@ -3,10 +3,10 @@
 body {
   background-color: #fcfcfc;
   color: #fcfcfc;
+  height: 993px;
   display: grid;
+  margin: auto;
   place-content: center;
-  height: 977px;
-  margin: 0;
   font-family: "Noto Sans KR";
   font-weight: 100;
   text-align: center;
@@ -14,6 +14,8 @@ body {
   overflow: hidden;
 }
 .box {
+  width: 400px;
+  margin: auto;
   padding: 30px 20px;
   border-radius: 30px;
   background-color: rgba(0, 0, 0, 0.2);
@@ -117,9 +119,10 @@ input {
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
   min-width: 1500px;
   /* 최소 넓이를 설정함으로써 웹페이지를 축소 했을 때 배경이미지가 찌그러드는걸 막음 */
-  height: 977px;
+  min-height: 993px;
   z-index: -1;
   animation: fadeIn 0.5s linear;
 }
