@@ -3,10 +3,11 @@
 body {
   background-color: #fcfcfc;
   color: #fcfcfc;
-  height: 993px;
+  width: auto;
+  height: 100vh;
   display: grid;
-  margin: auto;
   place-content: center;
+  margin: 20px;
   font-family: "Noto Sans KR";
   font-weight: 100;
   text-align: center;
@@ -14,7 +15,7 @@ body {
   overflow: hidden;
 }
 .box {
-  width: 400px;
+  /* width: 400px; */
   margin: auto;
   padding: 30px 20px;
   border-radius: 30px;
@@ -114,15 +115,22 @@ input {
   }
 }
 
+.quoteDisplay {
+  opacity: 0;
+  animation: fadeIn 2s linear forwards 0.5s;
+}
+
 .bgImage {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  min-width: 1500px;
+  object-fit: cover;
+  /* 탭사이즈를 줄여도 배경이미지가 찌그러지지않고 가운데 부분만 보이도록 축소됨 */
+  /* min-width: 1500px; */
   /* 최소 넓이를 설정함으로써 웹페이지를 축소 했을 때 배경이미지가 찌그러드는걸 막음 */
-  min-height: 993px;
+  /* min-height: 993px; */
   z-index: -1;
   animation: fadeIn 0.5s linear;
 }

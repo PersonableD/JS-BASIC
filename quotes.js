@@ -16,18 +16,6 @@ const quotes = [
 ];
 //명언들 배열안에 넣어주기(배열 하나 하나는 명언과 이름이 든 객체 형태로)
 
-// function paintQuote(text, text2) {
-//   const p1 = document.createElement("p");
-//   const p2 = document.createElement("p");
-//   p1.className = "quotation";
-//   p2.className = "author";
-//   quoteDisplay.appendChild(p1);
-//   quoteDisplay.appendChild(p2);
-//   p1.innerText = text;
-//   p2.innerText = text2;
-// }
-// //div quoteDisplay 안에 문단 태그 2개 만들어주고 문단 안에 들어갈 글귀 인자 넘겨주기
-
 function getRandomQuote() {
   let random = quotes[Math.floor(Math.random() * quotes.length)];
   quotation.innerText = random.quotation;
